@@ -1,0 +1,145 @@
+<%- include("partials/header") -%>
+ <!-- --------------COURSES ADDED SECTION------------  -->
+<section class="container-fluid">
+
+  <div class=""> 
+    <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-6 ">
+  <div class="card course-section">
+    <h3 class="card-title">COURSES ADDED</h3>
+
+    <table class="table">
+      <thead><tr>
+        <th scope="col">S/N</th>
+        <th scope="col">Course Code</th>
+        <th scope="col">Unit Load</th>
+        <th scope="col">Grade</th>
+        <th scope="col">Points</th>
+      </tr>
+    </thead>
+      <tbody>
+    <div class="add-section form-group">
+        <form action="/remove" method="post">
+          <% coursesAdded.forEach(function(course){ %>
+            <tr> <th scope="row"><%= serialNumber++ %></th>
+              <td><%= course.courseCode %><span><small>
+                  <button class="btn  remove-button" type="submit" onclick="this.value.submit()" 
+                  name="remove" title="Delete" value="<%= course._id %>"><i class="fa fa-remove" style="color: red;"></i></button>
+              </small></span></td>
+              <td><%= course.unitLoad %></td>
+              <td><%= course.grade %></td>
+              <td><%= course.courseScore %></td>
+             </tr>
+          <% }); %>
+        </form>
+      </div>
+        
+      
+    </tbody>
+    </table>
+         <!-- ----------------reset functionality----------------- -->
+         <div class="add-section">
+          <form action="/delete" method="post">
+              <button class="btn btn-primary btn-lg" id="reset-button" data-bs-toggle="modal" data-bs-target="#reset" type="button">Reset</button>
+            
+               </div>
+              <div class="modal" id="reset">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- Modal header -->
+                      <div class="modal-header">
+                        <h2 class="justify-content-center modal-title" style="color: red">DELETE</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                      </div>
+                      <!-- modal body -->
+                      <div class="modal-body">
+                        <h5 style="color: red">Are you sure you want to reset your data ?</h5>
+                      </div>
+                      
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger" name="reset" onchange="this.form.submit()" data-bs-dismiss="modal">Reset</button>
+                  </div>
+                    </div>
+                </div>
+              </div>
+            </form>
+  </div>
+</div>
+    <div class="col-sm-12 col-md-6 col-lg-6">
+      <div class="card add-section">
+      <form action="/course" method="post">
+       
+        <div class="form-group">
+          <label for="course">Course Code</label>
+          <input class="form-control" placeholder="Please Enter course code" id="" name="course" required type="text">
+        </div>
+        <div class="form-group">
+          <label for="unitLoad">Unit Load</label>
+          <select class="form-control" placeholder="Unit Load" id="unitLoad" name="unitLoad" required type="text">
+            <option value="2">2</option>
+            <option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="1">1</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="grade">Grade </label>
+          <select class="form-control" placeholder="Enter the grade you got" id="grade" name="grade" required type="text">
+            <option value="a">A</option>
+            <option value="b">B</option>
+            <option value="c">C</option>
+            <option value="d">D</option>
+            <option value="e">E</option>
+            <option value="f">F</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm mt-3 mb-3">Add</button>
+        
+      </form>
+ 
+    <!---------------------------- Display result section --------------------------------->
+        <!-- Button trigger modal -->
+        
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+            Calculate 
+          </button>
+        
+       
+      </div>
+      
+      <!-- The Modal -->
+      <div class="modal" id="myModal" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false" >
+        <div class="modal-dialog">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h2 class="modal-title">RESULT</h2>
+              <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body">
+              <h3>Total Courses: <%=serialNumber - 1 %></h3><h3>Total Credit Load: <%=totalUnit%></h3>
+              <h3 >Total Score: <%=totalScore%></h3><h3>CGPA: <%=currentCgpa%></h3>
+              <small class="remark"> <%= remark %> </small>
+            </div>
+      
+            <!-- Modal footer -->
+            <form action="/refresh" method="post"> 
+              <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="this.form.submit()">OK</button>
+            </div>
+          </form>
+           
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+</div>
+   
+
+  </section>
+
+<%- include("partials/footer") -%>

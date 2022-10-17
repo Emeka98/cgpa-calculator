@@ -1,0 +1,104 @@
+body {
+    background-color: slateblue;
+    text-align: center;
+    color: #ccd2e4;
+    
+}
+
+.form-group {
+   padding-left: 3%;
+   padding-right: 3%;
+   display: inline;  
+   
+}
+
+.my-photo {
+    background-color: slateblue;
+}
+section {
+    padding: 4%;
+    
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.card {
+    padding: 5%;
+}
+.card.home {
+    background-color: darkslateblue;
+    color: whitesmoke;
+}
+.add-section {
+    background-color: darkslateblue;
+    color: white;
+}
+
+.btn-circle {
+    border-radius: 50%;
+    color: white;
+    background-color: cornflowerblue;
+    text-decoration: none;
+    padding: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    margin: 4px 2px;
+    display: inline-block;
+    border-color: cornflowerblue;
+    border: none;
+}
+.course-section {
+    background-color: darkslateblue;
+    color: white;
+}
+.btn {
+    padding: 2%;
+    margin: 2%;
+}
+
+table {
+    color: white;
+}
+.modal {
+    color: darkslateblue;
+    
+}
+.modal-title {
+    color: lightgreen;
+}
+.remark {
+    color: teal;
+    padding: 5%;
+    width: 70%;
+    text-align: left;
+}
+h3 {
+    
+    display: block;
+}
+#reset-button {
+    width: 100%;
+
+    margin-top: 3.5rem;
+  
+}
+
+.remove-button {
+    margin-left: 2rem;
+    border-radius: 50%;
+    width: 2.0rem;
+    height: 2rem;
+}
+
+.topnav {
+    overflow: hidden;
+    color: #fff7e9;
+}
+
+/* .topnav a:hover {
+    background-color: #5f9df7;
+    color: rgb(30, 158, 190);
+} */
